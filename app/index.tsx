@@ -25,7 +25,7 @@ export default function LaunchScreen() {
 
   return (
     <ImageBackground 
-      source={require('/home/dnd/Project/cabbie/assets/images/loading-white.png')} 
+      source={require('@/assets/images/loading-black.png')} 
       style={styles.container}
     >
 

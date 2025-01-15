@@ -14,7 +14,7 @@ export default function WelcomeScreen() {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../assets/images/loading-black.png')}
+        source={require('@/assets/images/loading-black.png')}
         style={styles.backgroundImage}
       >
         <BlurView intensity={90} style={styles.content}>
