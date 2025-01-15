@@ -74,7 +74,9 @@ export default function HomeScreen() {
 
       <MapView
         style={styles.map}
-        initialRegion={MARTINIQUE_REGION}>
+        initialRegion={MARTINIQUE_REGION}
+        mapType="satellite"
+      >
         {/* Position actuelle */}
         <Marker coordinate={MARTINIQUE_REGION}>
           <View style={[styles.marker, styles.currentMarker]}>
