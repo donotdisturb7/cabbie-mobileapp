@@ -1,7 +1,7 @@
-import { View, StyleSheet } from 'react-native';
-import React from 'react';
-import TabBarButton from './TabBarButton';
-import { COLORS } from '@/constants/theme';
+import { View, StyleSheet } from "react-native";
+import React from "react";
+import TabBarButton from "./TabBarButton";
+import { COLORS } from "@/constants/theme";
 
 const TabBar = ({ state, descriptors, navigation }) => {
   return (
@@ -15,13 +15,13 @@ const TabBar = ({ state, descriptors, navigation }) => {
             ? options.title
             : route.name;
 
-        if(['_sitemap', '+not-found'].includes(route.name)) return null;
+        if (["_sitemap", "+not-found"].includes(route.name)) return null;
 
         const isFocused = state.index === index;
 
         const onPress = () => {
           const event = navigation.emit({
-            type: 'tabPress',
+            type: "tabPress",
             target: route.key,
             canPreventDefault: true,
           });
@@ -33,13 +33,13 @@ const TabBar = ({ state, descriptors, navigation }) => {
 
         const onLongPress = () => {
           navigation.emit({
-            type: 'tabLongPress',
+            type: "tabLongPress",
             target: route.key,
           });
         };
 
         return (
-          <TabBarButton 
+          <TabBarButton
             key={route.name}
             style={styles.tabbarItem}
             onPress={onPress}
@@ -57,24 +57,24 @@ const TabBar = ({ state, descriptors, navigation }) => {
 
 const styles = StyleSheet.create({
   tabbar: {
-    position: 'absolute', 
+    position: "absolute",
     bottom: 25,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     backgroundColor: COLORS.white,
     marginHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 25,
-    borderCurve: 'continuous',
+    borderCurve: "continuous",
     shadowColor: COLORS.secondary,
-    shadowOffset: {width: 0, height: 10},
+    shadowOffset: { width: 0, height: 10 },
     shadowRadius: 10,
-    shadowOpacity: 0.1
+    shadowOpacity: 0.1,
   },
   tabbarItem: {
     flex: 1,
-  }
+  },
 });
 
 export default TabBar;

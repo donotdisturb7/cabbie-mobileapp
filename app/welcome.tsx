@@ -7,17 +7,16 @@ import {
   ImageBackground,
 } from 'react-native';
 import { router } from 'expo-router';
-import { BlurView } from 'expo-blur';
 import { COLORS } from '@/constants/theme';
 
 export default function WelcomeScreen() {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('@/assets/images/loading-black.png')}
+        source={require('@/assets/images/cabBGLogo.png')}
         style={styles.backgroundImage}
       >
-        <BlurView intensity={90} style={styles.content}>
+        <View style={styles.content}>
           <View style={styles.header}>
             <Text style={styles.title}>Bienvenue sur Cabbie</Text>
             <Text style={styles.subtitle}>
@@ -42,7 +41,7 @@ export default function WelcomeScreen() {
               </Text>
             </TouchableOpacity>
           </View>
-        </BlurView>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -51,7 +50,7 @@ export default function WelcomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#001D3D',
   },
   backgroundImage: {
     flex: 1,
@@ -59,7 +58,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)',
     padding: 20,
     justifyContent: 'space-between',
   },
@@ -68,14 +66,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 36,
+    fontSize: 29,
     fontWeight: 'bold',
     color: '#FFF',
     textAlign: 'center',
     marginBottom: 16,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 20,
     color: '#FFD700', 
     textAlign: 'center',
     marginBottom: 32,

@@ -1,19 +1,19 @@
 import { useEffect } from 'react';
-import { View, Text, StyleSheet, Animated, ImageBackground } from 'react-native';
+import { View, StyleSheet, Animated } from 'react-native';
 import { router } from 'expo-router';
 import { COLORS } from '@/constants/theme';
+import LottieView from 'lottie-react-native';
 
 export default function LaunchScreen() {
   const loadingAnim = new Animated.Value(0);
-// animation de la bar de chargement & redirection vers la page welcome
-  useEffect(() => {
 
+  // animation de la bar de chargement & redirection vers la page welcome
+  useEffect(() => {
     Animated.timing(loadingAnim, {
       toValue: 1,
-      duration: 2000,
+      duration: 3500,
       useNativeDriver: false,
     }).start(() => {
-      
       router.replace('/welcome');
     });
   }, []);
@@ -24,23 +24,24 @@ export default function LaunchScreen() {
   });
 
   return (
-    <ImageBackground 
-      source={require('@/assets/images/loading-black.png')} 
-      style={styles.container}
-    >
-
-      
+    <View style= { styles.container } >
+      <LottieView
+        source={require('../assets/images/Animation - loading.json')}
+        autoPlay
+        loop
+        style={styles.lottie}
+      />
       <View style={styles.loadingContainer}>
-        <Animated.View 
+        <Animated.View
           style={[
             styles.loadingBar,
             {
               width,
             },
-          ]} 
+          ]}
         />
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -50,30 +51,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    backgroundColor: '#001D3D', // Vous pouvez ajuster la couleur de fond selon vos besoins
   },
-  title: {
-    fontSize: 48,
-    fontWeight: 'bold',
-    color: COLORS.secondary,
-    marginBottom: 10,
+  lottie: {
+    width: 200,
+    height: 200,
   },
-  subtitle: {
-    fontSize: 18,
-    color: COLORS.secondary,
-    marginBottom: 50,
-    opacity: 0.8,
-  },
+  // bar de chargement loading  
+  /*
   loadingContainer: {
     width: '80%',
     height: 6,
     backgroundColor: 'rgba(0,0,0,0.1)',
     borderRadius: 3,
     overflow: 'hidden',
-    marginTop: 250, 
+    marginTop: 20,
   },
   loadingBar: {
     height: '100%',
     borderRadius: 3,
     backgroundColor: COLORS.secondary,
-  },
+  },*/
 });
